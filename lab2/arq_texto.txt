@@ -1,0 +1,50 @@
+camadas
+funcionalidades da camada de interface com o usuário : recebe do usuário o
+nome do arquivo e a palavra de busca e exibe na tela o resultado do processamento .
+o resultado do processamento poderá ser :
+uma mensagem de erro indicando que o arquivo não foi encontrado ;
+o número de ocorrências da palavra no arquivo .
+decisão tomada : mensagens prontas para impressão .
+funcionalidades da camada de processamento : solicita o acesso ao arquivo
+texto . se o arquivo for válido , realiza a busca pela palavra informada e prepara a
+resposta para ser devolvida para a camada de interface . se o arquivo for inválido ,
+responde com a mensagem de erro .
+decisão tomada : receberá a mensagem de erro da camada de acesso aos dados caso o arquivo seja inválido e entrega à interface e produz mensagem de resposta que indica o número de ocorrências da palavra no arquivo e mensagem de próximas opções que o cliente poderá realizar . 
+funcionalidades da camada de acesso aos dados : verifica se o arquivo existe
+em sua base . se sim , devolve o seu conteúdo inteiro . caso contrário , devolve uma mensagem de erro .
+proposta de arquitetura de sistema
+lado cliente : implementa a camada de interface com o usuário . o usuário poderá solicitar o processamento de uma ou mais buscas em uma única execução da aplicação : o programa espera pelo nome do arquivo e da palavra de busca , faz o processamento , retorna o resultado e então aguarda um novo pedido de arquivo e palavra ou o comando de finalização . todas as mensagens serão do tipo string e precisam ser transformadas em uma sequência de bytes quando são enviadas do cliente / servidor e do servidor / cliente e depois para a leitura dessas mensagens são convertidas novamente para string . os arquivos serão do formato .txt
+lado servidor : implementa a camada de processamento e a camada de acesso aos dados . projete um servidor iterativo , isto é , que trata as requisições de um cliente de cada vez, em um único fluxo de execução . terminada a interação com um cliente , ele poderá voltar a esperar por nova conexão . dessa forma , o programa do servidor fica em loop infinito 
+funcionamento do programa
+será feito em python ( versão 3 . 9 . 5 ) , com o uso da interface de socket .
+o programa será composto de 4 arquivos :
+cliente . py ;
+servidor . py ;
+arq_texto . txt ;
+arq2_texto . txt .
+para a execução do programa , é preciso executar o arquivo servidor . py primeiro e depois o arquivo cliente . py senão não conseguirá estabelecer uma conexão . 
+no arquivo cliente . py teremos : 
+a implementação do lado do cliente . cliente se conectará com o servidor através da interface socket por um par ( host , porta ) e enviará uma mensagem requisitando uma conexão . caso a conexão falhe uma mensagem de erro será enviada pela própria interface socket . se a conexão for bem-sucedida , uma mensagem do servidor será enviada constatando o sucesso da conexão .
+após a conexão , o cliente fornece o nome dos arquivos disponíveis ( arq_texto.txt ou arq2_texto.txt ) e a palavra que deseja saber o número de ocorrências na forma ( nome_arquivo espaço palavra ) , podendo ser 0 ou mais ocorrências desta palavra no arquivo à ser processado e aguarda uma resposta . o cliente pode também encerrar a conexão com o comando exit .
+após a requisição , o cliente pode receber uma mensagem de erro , arquivo inválido , ou uma mensagem que o arquivo foi encontrado seguido de uma mensagem em que o processamento para encontrar o número de ocorrências da palavra requisitada está sendo realizado , recebendo no final o número de ocorrências da palavra no arquivo .
+após todo o processamento , o cliente receberá uma mensagem que indica suas próximas opções podendo ser :
+requisitar um novo arquivo a ser lido e processado com uma nova palavra ( comando continue )
+encerrar o programa e fechar a conexão com o servidor ( comando exit )
+no arquivo servidor . py teremos :
+a implementação do lado do servidor . servidor definirá o par ( host , porta ) para abrir uma conexão com cliente . ao estabelecer uma conexão , o servidor enviará um mensagem que indica o sucesso . caso contrário uma mensagem de erro é gerada pela interface socket .
+após a conexão , o servidor aguarda a entrada do usuário que pode ser no início , o nome do arquivo e a palavra de busca ou o comando exit . recebendo exit o programa é terminado com a conexão encerrada . recebendo a outra entrada , o servidor verifica se o nome do arquivo está presente na base de dados . se sim , retorna uma mensagem que o arquivo foi encontrado e uma mensagem que realizará o processamento de número de ocorrências da palavra dada . senão , retorna mensagem de arquivo inválido seguido de uma mensagem alertando o formato da entrada ( nome_arquivo espaço palavra ) , e uma mensagem para que o cliente tente novamente ou encerre a conexão .
+após encontrar o arquivo com sucesso , é feito o processamento de encontrar o número de ocorrências da palavra no arquivo escolhido .
+feito o processamento , é enviada uma mensagem ao cliente com o número de ocorrências da palavra no arquivo , podendo ser 0 ou mais .
+após o envio da resposta , o servidor envia ao cliente uma mensagem que indica as próximas opções do cliente bem como os comandos utilizados para executá-las :
+continue : é feita uma nova busca no mesmo arquivo com uma nova palavra informada pelo cliente . é enviada uma mensagem que indica a escolha desta opção .
+exit : encerra a conexão e termina o programa .
+como é feito o processamento
+servidor recebe a entrada do usuário , uma string convertida em bytes
+não há necessidade de incluir a extensão do arquivo na entrada , basta colocar o nome do arquivo . ; nome _ arquivo  ao invés de  nome _ arquivo . txt  
+o método split () , que separa uma string em uma lista , cujo os elementos dessa lista são cada string separada por espaço em branco , no nosso caso será do formato nome _ arquivo espaço palavra logo teremos uma lista com dois elementos
+pegamos o 1 elemento da nossa lista e localizamos o diretório onde está o arquivo a ser lido . o diretório é o mesmo em que se encontram cliente . py e servidor . py
+é feita a abertura do arquivo e armazenamos na variável file .
+realizamos a leitura do arquivo e armazenamos em data
+fazemos slipt () em data o que separa todas as palavras do arquivo em uma lista e armazenamos em words _ file
+iteramos sobre a lista words _ file e comparamos cada palavra do arquivo com a palavra escolhida e realizamos a contagem do número de ocorrências na variável count .
+feito isso , fechamos o arquivo e enviamos ao cliente a mensagem que contém o número de ocorrências bem como uma mensagem que não aparecerá no terminal do cliente , apenas informando que o processamento terminou e se deseja continuar o programa ou encerrá-lo .
