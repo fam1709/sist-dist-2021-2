@@ -1,0 +1,104 @@
+the following are the graphical (non-control) characters defined by
+iso 8859-1 (1987).  descriptions in words aren't all that helpful,
+but they're the best we can do in text.  a graphics file illustrating
+the character set should be available from the same archive as this
+file.
+
+hex description                 hex description
+
+20  space
+21  exclamation mark            a1  inverted exclamation mark
+22  quotation mark              a2  cent sign
+23  number sign                 a3  pound sign
+24  dollar sign                 a4  currency sign
+25  percent sign                a5  yen sign
+26  ampersand                   a6  broken bar
+27  apostrophe                  a7  section sign
+28  left parenthesis            a8  diaeresis
+29  right parenthesis           a9  copyright sign
+2a  asterisk                    aa  feminine ordinal indicator
+2b  plus sign                   ab  left-pointing double angle quotation mark
+2c  comma                       ac  not sign
+2d  hyphen-minus                ad  soft hyphen
+2e  full stop                   ae  registered sign
+2f  solidus                     af  overline
+30  digit zero                  b0  degree sign
+31  digit one                   b1  plus-minus sign
+32  digit two                   b2  superscript two
+33  digit three                 b3  superscript three
+34  digit four                  b4  acute accent
+35  digit five                  b5  micro sign
+36  digit six                   b6  pilcrow sign
+37  digit seven                 b7  middle dot
+38  digit eight                 b8  cedilla
+39  digit nine                  b9  superscript one
+3a  colon                       ba  masculine ordinal indicator
+3b  semicolon                   bb  right-pointing double angle quotation mark
+3c  less-than sign              bc  vulgar fraction one quarter
+3d  equals sign                 bd  vulgar fraction one half
+3e  greater-than sign           be  vulgar fraction three quarters
+3f  question mark               bf  inverted question mark
+40  commercial at               c0  capital letter a with grave
+41  capital letter a            c1  capital letter a with acute
+42  capital letter b            c2  capital letter a with circumflex
+43  capital letter c            c3  capital letter a with tilde
+44  capital letter d            c4  capital letter a with diaeresis
+45  capital letter e            c5  capital letter a with ring above
+46  capital letter f            c6  capital letter ae
+47  capital letter g            c7  capital letter c with cedilla
+48  capital letter h            c8  capital letter e with grave
+49  capital letter i            c9  capital letter e with acute
+4a  capital letter j            ca  capital letter e with circumflex
+4b  capital letter k            cb  capital letter e with diaeresis
+4c  capital letter l            cc  capital letter i with grave
+4d  capital letter m            cd  capital letter i with acute
+4e  capital letter n            ce  capital letter i with circumflex
+4f  capital letter o            cf  capital letter i with diaeresis
+50  capital letter p            d0  capital letter eth (icelandic)
+51  capital letter q            d1  capital letter n with tilde
+52  capital letter r            d2  capital letter o with grave
+53  capital letter s            d3  capital letter o with acute
+54  capital letter t            d4  capital letter o with circumflex
+55  capital letter u            d5  capital letter o with tilde
+56  capital letter v            d6  capital letter o with diaeresis
+57  capital letter w            d7  multiplication sign
+58  capital letter x            d8  capital letter o with stroke
+59  capital letter y            d9  capital letter u with grave
+5a  capital letter z            da  capital letter u with acute
+5b  left square bracket         db  capital letter u with circumflex
+5c  reverse solidus             dc  capital letter u with diaeresis
+5d  right square bracket        dd  capital letter y with acute
+5e  circumflex accent           de  capital letter thorn (icelandic)
+5f  low line                    df  small letter sharp s (german)
+60  grave accent                e0  small letter a with grave
+61  small letter a              e1  small letter a with acute
+62  small letter b              e2  small letter a with circumflex
+63  small letter c              e3  small letter a with tilde
+64  small letter d              e4  small letter a with diaeresis
+65  small letter e              e5  small letter a with ring above
+66  small letter f              e6  small letter ae
+67  small letter g              e7  small letter c with cedilla
+68  small letter h              e8  small letter e with grave
+69  small letter i              e9  small letter e with acute
+6a  small letter j              ea  small letter e with circumflex
+6b  small letter k              eb  small letter e with diaeresis
+6c  small letter l              ec  small letter i with grave
+6d  small letter m              ed  small letter i with acute
+6e  small letter n              ee  small letter i with circumflex
+6f  small letter o              ef  small letter i with diaeresis
+70  small letter p              f0  small letter eth (icelandic)
+71  small letter q              f1  small letter n with tilde
+72  small letter r              f2  small letter o with grave
+73  small letter s              f3  small letter o with acute
+74  small letter t              f4  small letter o with circumflex
+75  small letter u              f5  small letter o with tilde
+76  small letter v              f6  small letter o with diaeresis
+77  small letter w              f7  division sign
+78  small letter x              f8  small letter o with stroke
+79  small letter y              f9  small letter u with grave
+7a  small letter z              fa  small letter u with acute
+7b  left curly bracket          fb  small letter u with circumflex
+7c  vertical line               fc  small letter u with diaeresis
+7d  right curly bracket         fd  small letter y with acute
+7e  tilde                       fe  small letter thorn (icelandic)
+                                ff  small letter y with diaeresis
